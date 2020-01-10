@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PublicDelegateProblem
+﻿namespace PublicDelegateProblem
 {
     public class Car
     {
@@ -12,7 +8,7 @@ namespace PublicDelegateProblem
         public CarEngineHandler listOfHandlers;
 
         // Just fire out the Exploded notification.
-        public void Accelerate(int delta)
+        public void Accelerate()
         {
             listOfHandlers?.Invoke("Sorry, this car is dead...");
         }

@@ -4,19 +4,21 @@ namespace PublicDelegateProblem
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("***** Agh! No Encapsulation! *****\n");
             // Make a car.
-            Car myCar = new Car();
-            // We have direct access to the delegate!
-            myCar.listOfHandlers = new Car.CarEngineHandler(CallWhenExploded);
-            myCar.Accelerate(10);
+            Car myCar = new Car
+            {
+                // We have direct access to the delegate!
+                listOfHandlers = new Car.CarEngineHandler(CallWhenExploded)
+            };
+            myCar.Accelerate();
 
             // We can now assign to a whole new object...
             // confusing at best.
             myCar.listOfHandlers = new Car.CarEngineHandler(CallHereToo);
-            myCar.Accelerate(10);
+            myCar.Accelerate();
 
             // The caller can also directly invoke the delegate!
             myCar.listOfHandlers.Invoke("hee, hee, hee...");
